@@ -48,7 +48,11 @@ EOL
 
 # Submissions file
 cat "${target_directory}/submissions.txt" > "${dirName}/assets/submissions.txt"
-echo -e "# Submissions\nJohn Doe,Submitted\nJane Smith,Pending\nAlice Johnson,Submitted\nBob Brown,Pending\nCharlie White,Submitted" >> "$dirName/assets/submissions.txt"
+echo "John Doe, Shell Navigation, Submitted
+Mike Manzi, Git, not submitted
+Alice Johnson, Git, submitted
+Bob Manzi, Shell Basics, submitted
+Peter Opara Udo, Shell Basics,submitted" >> "${dirName}/assets/submissions.txt"
 
 # Startup script
 echo -e "#!/bin/bash
@@ -57,15 +61,15 @@ echo -e "#!/bin/bash
 echo \"Starting the submission reminder application...\"
 
 # Source the configuration and functions
-source ./config.env
-source ./functions.sh
+source ./config/config.env
+source ./modules/functions.sh
 
 # Display the assignment and days remaining
-echo \"Assignment: $ASSIGNMENT\"
-echo \"Days Remaining: $DAYS_REMAINING\"
+# echo \"Assignment: $ASSIGNMENT\"
+# echo \"Days Remaining: $DAYS_REMAINING\"
 
 # Run the reminder script
-bash ./reminder.sh
+bash ./app/reminder.sh
 
 echo \"Reminder application has been executed.\"
 " > "$dirName/startup.sh"
